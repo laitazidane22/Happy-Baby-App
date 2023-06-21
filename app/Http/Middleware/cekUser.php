@@ -17,10 +17,10 @@ class cekUser
      */
     public function handle(Request $request, Closure $next, $hakAkses)
     {
-        if (!auth()->check()) {
-            return redirect('artikel');
+        if (!Auth::check()) {
+            return redirect('login');
         }
-        $user = auth()->user();
+        $user =Auth::user();
 
         if($user->hak_akses == $hakAkses){
             
@@ -28,6 +28,6 @@ class cekUser
         }
 
 
-        return redirect('artikel')->with('error',"Email dan Password anda salah");
+        return redirect('login')->with('error',"Email dan Password anda salah");
     }
 }

@@ -48,11 +48,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/logout',[UserAuthController::class, 'logout'])->name('logout');
 });
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::group(['middleware' => ['cekUser:admin']], function () {
-        Route::resource('admin', AdminController::class);
-    });
-    Route::group(['middleware' => ['cekUser:customer']], function () {
-        Route::resource('customer', CustomerController::class,);
-    });
-});
+// Route::group(['middleware' => ['auth']], function () {
+//     Route::group(['middleware' => ['cekUser:admin']], function () {
+//         Route::resource('admin', AdminController::class);
+//     });
+//     Route::group(['middleware' => ['cekUser:customer']], function () {
+//         Route::resource('customer', CustomerController::class,);
+//     });
+// });

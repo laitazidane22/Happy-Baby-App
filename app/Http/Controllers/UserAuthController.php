@@ -27,7 +27,7 @@ class UserAuthController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
-            
+        echo Auth::attempt($kredensil);
 
             if (Auth::attempt($kredensil)) {
                 $user = Auth::user();
@@ -39,7 +39,7 @@ class UserAuthController extends Controller
                 return redirect()->intended('/');
             }
 
-        return redirect('artikel')->withInput()->withErrors(['login_gagal' => 'These credentials do not match our records.']);
+        return redirect('login')->withInput()->withErrors(['login_gagal' => 'These credentials do not match our records.']);
     }
 
     public function logout(Request $request)
